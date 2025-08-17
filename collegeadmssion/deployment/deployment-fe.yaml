@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clg-pri-rct-app-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: clg-pri-rct-app
+  template:
+    metadata:
+      labels:
+        app: clg-pri-rct-app
+    spec:
+      containers:
+        - name: clg-pri-rct-app
+          image: priyankabavineni004/clg-pri-rct-app:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5173

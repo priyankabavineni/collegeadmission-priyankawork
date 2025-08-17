@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clg-pri-be-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: clg-pri-be
+  template:
+    metadata:
+      labels:
+        app: clg-pri-be
+    spec:
+      containers:
+        - name: clg-pri-be
+          image: priyankabavineni004/clg-pri-be:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
